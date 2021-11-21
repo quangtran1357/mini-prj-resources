@@ -1,5 +1,5 @@
 <template>
-  <the-header title="Store Resource"></the-header>
+  <the-header title="Store Resources Change"></the-header>
   <the-resources></the-resources>
 </template>
 
