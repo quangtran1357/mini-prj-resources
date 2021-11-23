@@ -12,15 +12,15 @@
     <form @submit.prevent="submitData">
       <div class="form-control">
         <label for="title">Title</label>
-        <input id="title" name="title" type="text" ref="titleInput" />
+        <input id="title" name="title" type="text" v-model="titleInput" />
       </div>
       <div class="form-control">
         <label for="description">Description</label>
-        <textarea id="description" name="description" rows="3" ref="descInput"></textarea>
+        <textarea id="description" name="description" rows="3" v-model="descInput"></textarea>
       </div>
       <div class="form-control">
         <label for="link">Link</label>
-        <input id="link" name="link" type="url" ref="linkInput" />
+        <input id="link" name="link" type="url" v-model="linkInput" />
       </div>
       <div>
         <base-button type="submit">Add Resource</base-button>
@@ -35,13 +35,16 @@ export default {
   data() {
     return {
       inputIsInvalid: false,
+      titleInput: '',
+      descInput: '',
+      linkInput: '',
     };
   },
   methods: {
     submitData() {
-      const enteredTitle = this.$refs.titleInput.value;
-      const enteredDescription = this.$refs.descInput.value;
-      const enteredUrl = this.$refs.linkInput.value;
+      const enteredTitle = this.titleInput;
+      const enteredDescription = this.descInput;
+      const enteredUrl = this.linkInput;
 
       if (
         enteredTitle.trim() === '' ||
